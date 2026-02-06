@@ -30,6 +30,10 @@ jobs:
         with:
           workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
           service_account: '${{ env.SERVICE_ACCOUNT }}'
+      
+      # Configure Cloud SDK (actually USE those credentials)
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
 
       # Configure Docker to use the gcloud command-line tool as a credential helper
       - name: Docker Auth
